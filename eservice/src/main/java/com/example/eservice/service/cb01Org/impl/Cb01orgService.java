@@ -31,4 +31,13 @@ public class Cb01orgService implements ICb01OrgService {
 
         return listDto;
     }
+
+    @Override
+    public List<Cb01OrgDTO> getByConditions(Long idType, Long orgId, String irgScreenNm) {
+        List<Cb01OrgEntity> listEntity = cb01orgRepository.getByConditions(idType, orgId, irgScreenNm);
+
+        return listEntity.stream().map(x -> {
+            return cb01orgConverter.toDto(x);
+        }).collect(Collectors.toList());
+    }
 }

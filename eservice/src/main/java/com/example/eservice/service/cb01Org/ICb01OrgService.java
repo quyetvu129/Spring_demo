@@ -9,4 +9,6 @@ import java.util.List;
 @Service
 public interface ICb01OrgService {
     List<Cb01OrgDTO> getAll();
+
+    List<Cb01OrgDTO> getByConditions(Long idType, Long orgId, String irgScreenNm);
 }
